@@ -18,8 +18,8 @@ jobs:
             #   run: node -v
             - name: Installing Depe
               run: npm ci
-            # - name: Run tests
-            #   run: npm run test       
+            - name: Run tests
+              run: npm run test       
     deploy:
         needs: greet
         runs-on: ubuntu-latest
