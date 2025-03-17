@@ -16,6 +16,11 @@ jobs:
                 node-version: 20
             # - name: print node version
             #   run: node -v
+            - name: cache depe
+              uses: actions/cache@v4
+              with:
+                path: ~/.npm
+                key: ${{runner.os}}-node-${{hashFiles('**/package-lock.json')}}
             - name: Installing Depe
               run: npm ci
             - name: Run tests
@@ -30,6 +35,11 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: 20
+            - name: cache depe
+              uses: actions/cache@v4
+              with:
+                path: ~/.npm
+                key: ${{runner.os}}-node-${{hashFiles('**/package-lock.json')}}    
             - name: Installing Depe
               run: npm ci
             - name: build 
