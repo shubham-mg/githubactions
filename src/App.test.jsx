@@ -12,11 +12,11 @@ test('renders Github Actions heading', () => {
 test('contains an h1 element', () => {
   const { container } = render(<App />);
   const h1Element = container.querySelector('h1');
-  expect(h1Element).not.toBeInTheDocument();
+  expect(h1Element).toBeInTheDocument();
 });
 
 test('contains an h2 element', () => {
   const { container } = render(<App />);
   const h2Element = container.querySelector('h2');
-  expect(h2Element).not.toBeInTheDocument();
+  expect(h2Element).toBeInTheDocument();
 });
