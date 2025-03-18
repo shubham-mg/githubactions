@@ -53,12 +53,20 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
           name: github-pages
           path: dist
       
+      - name: Configure GitHub Pages
+        run: |
+          touch dist/.nojekyll  # Prevents GitHub from ignoring folders with underscores
+          echo "shubham-mg.github.io/githubactions" > dist/CNAME  # Update with your actual domain if needed
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
